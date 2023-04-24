@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="bookDao" class="net.zm123.test.dao.BookDaoImpl"/>
+    <bean id="bookService" class="net.zm123.test.service.BookServiceImpl">
+        <property name="bookDao" ref="bookDao"/>
+    </bean>
+    <!--静态工厂方法-->
+    <bean id="orderDao" class="net.zm123.test.OrderStaticFactory" factory-method="createOrder"/>
+    <!--实例工厂方法-->
+    <bean id="userDaoFactory" class="net.zm123.test.UserDaoFactory"/>
+    <bean id="userDao" factory-method="getUserDao" factory-bean="userDaoFactory"/>
+    <!--简化后的实例工厂方法-->
+    <bean id="user" class="net.zm123.test.UserFactory1"/>
+</beans>
