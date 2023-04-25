@@ -5,6 +5,8 @@
     <bean id="bookDao" class="net.zm123.test.dao.BookDaoImpl"/>
     <bean id="bookService" class="net.zm123.test.service.BookServiceImpl">
         <property name="bookDao" ref="bookDao"/>
+        <property name="bookName" value="平凡的世界"/>
+        <property name="boolNum" value="100"/>
     </bean>
     <!--静态工厂方法-->
     <bean id="orderDao" class="net.zm123.test.OrderStaticFactory" factory-method="createOrder"/>
@@ -13,4 +15,10 @@
     <bean id="userDao" factory-method="getUserDao" factory-bean="userDaoFactory"/>
     <!--简化后的实例工厂方法-->
     <bean id="user" class="net.zm123.test.UserFactory1"/>
+
+    <bean id="bookService1" class="net.zm123.test.service.BookServiceImpl1">
+        <constructor-arg value="钢铁是怎样炼成的" name="name"/>
+        <constructor-arg value="20" name="num"/>
+        <constructor-arg name="bookDao" ref="bookDao"/>
+    </bean>
 </beans>

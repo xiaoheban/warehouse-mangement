@@ -1,20 +1,16 @@
 package net.zm123.test.service;
 
 import net.zm123.test.dao.BookDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
+@Service("bookService")
 public class BookServiceImpl implements BookService {
+    @Autowired
     private BookDao bookDao;
-    private String bookName;//名称
-    private int boolNum;//数量
-
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
-    public void setBoolNum(int boolNum) {
-        this.boolNum = boolNum;
-    }
+    @Value("平凡的世界2")
+    private String name;
 
     public void save() {
         System.out.println("BookServiceImpl save");
@@ -25,13 +21,11 @@ public class BookServiceImpl implements BookService {
         this.bookDao = bookDao;
     }
 
-
     @Override
     public String toString() {
         return "BookServiceImpl{" +
                 "bookDao=" + bookDao +
-                ", bookName='" + bookName + '\'' +
-                ", boolNum=" + boolNum +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
