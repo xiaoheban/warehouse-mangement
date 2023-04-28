@@ -82,3 +82,130 @@ public class ServletContainersInitConfig extends AbstractDispatcherServletInitia
     }
 }
 ```
+
+```java
+@Controller
+@RequestMapping("/user")
+public class UserController {
+    @RequestMapping("/save")
+    @ResponseBody
+    public String save() {
+        return "{'code':'success','msg':'操作成功'}";
+    }
+}
+```
+
+```java
+@Controller
+@RequestMapping("/book")
+public class BookController {
+    @RequestMapping("/save")
+    @ResponseBody
+    public String save() {
+        return "{'cdoe':'success'}";
+    }
+}
+```
+
+2.请求参数
+
+普通参数
+
+```java
+@RequestMapping("/testParams")
+@ResponseBody
+public String testParams(String name, int age, @RequestParam("gender") String userGender) {
+    //客户端传过来的是gender ，我们这里要处理成userGender
+    System.out.println("名称" + name);
+    System.out.println("性别" + userGender);
+    return "name:" + name + " age " + age;
+}
+```
+
+POJO对象
+
+嵌套POJO类型参数
+
+数组类型参数
+
+集合类型参数
+
+传递json数据
+
+```xml
+<dependency>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-databind</artifactId>
+  <version>2.9.0</version>
+</dependency>
+```
+
+```java
+@EnableWebMvc //开启自动json转换
+public class SpringMvcConfig {
+}
+```
+
+![image-20230427151739501](C:\Users\wanghui\AppData\Roaming\Typora\typora-user-images\image-20230427151739501.png)
+
+日期格式:
+
+```java
+@RequestMapping("/dateParams")
+@ResponseBody
+public String dateParams(Date date, @DateTimeFormat(pattern = "yyyy-MM-dd") Date date1) {
+    System.out.println("日期传递参数 " + date.toString());
+    System.out.println("日期传递参数 " + date1.toString());
+    return "{'code':'ok'}";
+}
+```
+
+返回json
+
+```java
+@RequestMapping("/responseJson")
+@ResponseBody
+public User responseJson() {
+    User user = new User();
+    user.setAge("22");
+    user.setGender("男");
+    user.setName("王辉");
+    return user;
+}
+```
+
+restful
+
+![image-20230428114738593](C:\Users\wanghui\AppData\Roaming\Typora\typora-user-images\image-20230428114738593.png)
+
+![image-20230428114838400](C:\Users\wanghui\AppData\Roaming\Typora\typora-user-images\image-20230428114838400.png)
+
+![image-20230428115346267](C:\Users\wanghui\AppData\Roaming\Typora\typora-user-images\image-20230428115346267.png)
+
+简化后
+
+```java
+@RestController//该类的每个方法都返回给客户端
+@RequestMapping("/user1")
+public class UserController1 {
+    @PostMapping
+    public String save(@RequestBody User user) {
+        return "{'action':'save','result':" + user + "}";
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public String delete(@PathVariable Integer id) {
+        return "{'action':'delete','id':" + id + "}";
+    }
+
+    @PutMapping
+    public String update(@RequestBody User user) {
+        return "{'action':'update','result':" + user + "}";
+    }
+
+    @GetMapping
+    public String getAllUsers() {
+        return "{'action':'update','result':" + "all users" + "}";
+    }
+}
+```
