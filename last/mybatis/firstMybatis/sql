@@ -1,0 +1,16 @@
+create database mybatis;
+use mybatis;
+
+drop table if exists tb_user;
+
+create table tb_user(
+    id int primary key auto_increment,
+    username varchar(50),
+    password varchar(50),
+    gender char(1),
+    addr varchar(256)
+);
+
+insert INTO tb_user VALUES(1,"jack","123","男","南京");
+insert INTO tb_user VALUES(2,"王辉","1235","男","江苏南京");
+insert INTO tb_user VALUES(3,"Tom","1223","女","上海");

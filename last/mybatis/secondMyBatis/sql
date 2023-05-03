@@ -1,0 +1,15 @@
+create database mybatis;
+use mybatis;
+
+drop table if exists tb_brand;
+
+create table tb_brand(
+    id int primary key auto_increment,
+    brand_name varchar(50),
+    company_name varchar(256),
+    addr varchar(256)
+);
+
+insert INTO tb_brand VALUES(1,"追梦牌","南京追梦科技","南京新街口");
+insert INTO tb_brand VALUES(2,"缤纷","南京缤纷科技","南京新街口23号");
+insert INTO tb_brand VALUES(3,"古城","上海古城科技","中山路新街口");
