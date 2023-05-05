@@ -7,10 +7,44 @@
         <result column="brand_name" property="brandName"></result>
         <result column="company_name" property="companyName"></result>
     </resultMap>
-<!--    <select id="getBrand" resultType="brand">
-        select * from tb_brand where id = #{id}
-    </select>-->
+    <insert id="add">
+
+    </insert>
+    <!--    <select id="getBrand" resultType="brand">
+            select * from tb_brand where id = #{id}
+        </select>-->
     <select id="getBrand" resultMap="brandResultMap">
         select * from tb_brand where id = #{id}
+    </select>
+    <!--<select id="selectByCondition" resultMap="brandResultMap">
+        select * from tb_brand
+        where status = #{status}
+        and company_name like #{companyName}
+    </select>-->
+    <!--动态条件查询-->
+    <select id="selectByCondition" resultMap="brandResultMap">
+        select * from tb_brand
+        <!--where-->
+        <where>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="companyName != null and companyName != ''">
+                and company_name like #{companyName}
+            </if>
+        </where>
+    </select>
+    <select id="selectByConditionSingle" resultMap="brandResultMap">
+        select * from tb_brand
+        <where>
+            <choose>
+                <when test="status != null">
+                    status = #{status}
+                </when>
+                <when test="companyName != null and companyName != ''">
+                    company_name like #{companyName}
+                </when>
+            </choose>
+        </where>
     </select>
 </mapper>

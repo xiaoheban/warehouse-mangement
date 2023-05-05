@@ -11,6 +11,7 @@ public class Brand {
     private String brandName;
     private String companyName;
     private String addr;
+    private String status;
 
     public int getId() {
         return id;
@@ -44,6 +45,10 @@ public class Brand {
         this.addr = addr;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "Brand{" +
@@ -51,6 +56,7 @@ public class Brand {
                 ", brandName='" + brandName + '\'' +
                 ", companyName='" + companyName + '\'' +
                 ", addr='" + addr + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }
