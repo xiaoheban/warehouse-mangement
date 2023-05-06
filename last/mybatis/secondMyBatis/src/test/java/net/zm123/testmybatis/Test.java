@@ -1,7 +1,8 @@
 package net.zm123.testmybatis;
 
 public class Test {
-    private void testAdd() {
-
+    @org.junit.Test
+    public void testAdd() {
+        System.out.println("说3");
     }
 }

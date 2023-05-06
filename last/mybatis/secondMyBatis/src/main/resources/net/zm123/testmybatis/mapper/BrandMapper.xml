@@ -7,9 +7,7 @@
         <result column="brand_name" property="brandName"></result>
         <result column="company_name" property="companyName"></result>
     </resultMap>
-    <insert id="add">
 
-    </insert>
     <!--    <select id="getBrand" resultType="brand">
             select * from tb_brand where id = #{id}
         </select>-->
@@ -47,4 +45,9 @@
             </choose>
         </where>
     </select>
+    <!--添加-->
+    <insert id="add">
+        insert into  ()
+        values ();
+    </insert>
 </mapper>
