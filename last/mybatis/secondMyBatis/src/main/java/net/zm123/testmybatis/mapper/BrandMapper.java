@@ -14,13 +14,14 @@ public interface BrandMapper {
     //List<Brand> selectByCondition(@Param("status") String status, @Param("companyName") String companyName);
 
     //对象参数
-     // List<Brand> selectByCondition(Brand brand);
+    // List<Brand> selectByCondition(Brand brand);
 
     //map参数
     List<Brand> selectByCondition(Map map);
 
     /**
      * 但条件动态查询
+     *
      * @param brand
      * @return
      */
@@ -28,7 +29,28 @@ public interface BrandMapper {
 
     /**
      * 增加
+     *
      * @param brand
      */
-    void add(Brand brand);
+    int add(Brand brand);
+
+    /**
+     * 更新数据
+     *
+     * @param brand
+     */
+    void updateBrand(Brand brand);
+
+    /**
+     * 删除单个
+     *
+     * @param id
+     */
+    void deleteById(int id);
+
+    /**
+     * 批量删除
+     * @param ids
+     */
+    void deleteByIds(@Param("ids") int[] ids);
 }
