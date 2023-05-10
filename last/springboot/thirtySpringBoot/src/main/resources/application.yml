@@ -1,0 +1,22 @@
+server:
+  port: 8083
+
+  #自定义对象
+person:
+  name: 张三
+  age: 20
+person1: { name: 张三,age：20 }
+
+#对象的行内写法
+
+
+#数组
+address:
+  - 背景
+  - 上海
+#数组的行内写法
+address1:
+#单双引号
+msg1: 'hello\nworld' #忽略\n 原样输出
+
+msg2: "hello\nworld" #换行
