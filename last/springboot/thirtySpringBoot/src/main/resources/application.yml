@@ -1,6 +1,8 @@
 server:
   port: 8083
 
+
+name: 老师
   #自定义对象
 person:
   name: 张三
@@ -15,7 +17,8 @@ address:
   - 背景
   - 上海
 #数组的行内写法
-address1:
+address1: [ 南京,海南 ]
+# 纯量 可以理解为常量
 #单双引号
 msg1: 'hello\nworld' #忽略\n 原样输出
 
