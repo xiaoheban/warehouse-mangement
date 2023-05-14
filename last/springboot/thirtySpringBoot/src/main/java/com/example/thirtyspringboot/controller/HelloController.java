@@ -1,5 +1,6 @@
 package com.example.thirtyspringboot.controller;
 
+import com.example.thirtyspringboot.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -24,6 +25,10 @@ public class HelloController {
     @Autowired
     private Environment env;
 
+    //注入person配置
+    @Autowired
+    private Person person;
+
     @RequestMapping("/hello")
     public String helloWorld() {
         System.out.println("name " + name);
@@ -34,6 +39,8 @@ public class HelloController {
         System.out.println("env age " + env.getProperty("person.age",Integer.class));
         System.out.println("env name " + env.getProperty("person.name"));
         System.out.println("env msg " + env.getProperty("msg1"));
+
+        System.out.println("person " + person);
         return "hello world";
     }
 }

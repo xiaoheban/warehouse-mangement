@@ -1,0 +1,16 @@
+<!--
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="net.zm123.testmybatis.pojo"/>
+    </typeAliases>
+    &lt;!&ndash; &ndash;&gt;
+    <mappers>
+        &lt;!&ndash;<mapper resource="net/zm123/test/mapper/UserMapper.xml"/>&ndash;&gt;
+        &lt;!&ndash;可以简化成为包扫描的方式&ndash;&gt;
+        <package name="net.zm123.testmybatis.mapper"/>
+    </mappers>
+</configuration>-->

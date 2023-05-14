@@ -5,8 +5,9 @@ server:
 name: 老师
   #自定义对象
 person:
-  name: 张三
-  age: 20
+  age: 32
+  name: jackwang
+
 person1: { name: 张三,age：20 }
 
 #对象的行内写法
