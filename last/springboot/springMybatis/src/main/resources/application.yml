@@ -8,5 +8,5 @@ spring:
 #mybatis配置
 mybatis:
   type-aliases-package: net.zm123.springmybatis.domain
-  mapper-locations: classpath:net/zm123/springmybatis/mapper/*Mapper.xml
+  mapper-locations: classpath:mapper/*Mapper.xml
 #config-location:

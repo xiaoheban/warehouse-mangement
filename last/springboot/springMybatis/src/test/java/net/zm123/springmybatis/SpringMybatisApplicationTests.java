@@ -1,6 +1,7 @@
 package net.zm123.springmybatis;
 
 import net.zm123.springmybatis.domain.User;
+import net.zm123.springmybatis.mapper.BrandMapper;
 import net.zm123.springmybatis.mapper.UserMapper;
 import net.zm123.springmybatis.mapper.UserXmlMapper;
 import org.junit.jupiter.api.Test;
@@ -31,6 +32,13 @@ class SpringMybatisApplicationTests {
     void testXmlUserSelectAll(){
         List<User> users = userXmlMapper.findAllUsers();
         System.out.println(users);
+    }
+
+    @Resource
+    private BrandMapper brandMapper;
+    @Test
+    void testBrandSelectBrands(){
+        System.out.println(brandMapper.getBrands());
     }
     @Test
     void contextLoads() {
