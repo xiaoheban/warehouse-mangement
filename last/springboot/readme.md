@@ -119,3 +119,26 @@ Environment 对象
 @Autowired
 private Environment env;
 ```
+
+
+
+
+
+springBootAdmin:可视化监控
+
+客户端：springboot项目
+
+服务端: 客户端把actuator监控的数据发送给服务端，进行显示
+
+adminServer:
+
+1. 创建项目/module
+2. 导入依赖坐标：admin-start-server
+3. 在项目的引导类启用： @EnableAdminServer
+
+adminClient:
+
+1. 创建项目/module
+2. 导入依赖坐标：admin-start-client
+3. 配置相关信息: server地址等
+4. 启动server和client，访问server
